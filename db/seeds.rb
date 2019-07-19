@@ -23,3 +23,6 @@ animal1 = Animal.new({
   })
 
   animal1.save()
+
+  binding.pry
+  nil

@@ -31,4 +31,13 @@ attr_reader :id, :first_name, :last_name
     SqlRunner.run(sql)
   end
 
+def animals()
+  sql = "SELECT * FROM animals
+  WHERE owner_id = $1"
+  values = [@id]
+  results = SqlRunner.run(sql, values)
+  animals = results.map { |animal| Animal.new(animal)}
+  return animals
+end
+
 end
