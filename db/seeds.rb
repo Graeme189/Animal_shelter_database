@@ -15,6 +15,7 @@ animal1 = Animal.new({
   "type" => "cat",
   "breed" => "moggie",
   "admission_date" => "12042006",
+  "owner_id" => owner1.id,
   "adoption_ready" => true
   })
 
