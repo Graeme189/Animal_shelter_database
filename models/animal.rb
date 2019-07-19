@@ -40,6 +40,13 @@ class Animal
   SqlRunner.run(sql)
   end
 
+  def self.all()
+    sql = "SELECT * FROM animals"
+    animals = SqlRunner.run(sql)
+    result = animals.map { |animal| Animal.new(animal)}
+    return result
+  end
+
   def owner()
     sql = "SELECT * FROM owners
     WHERE id = $1"
