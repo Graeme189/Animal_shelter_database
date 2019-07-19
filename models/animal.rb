@@ -13,7 +13,7 @@ class Animal
   end
 
   def save()
-    sql = "INSERT INTO animals"
+    sql = "INSERT INTO animals
     (
       name,
       type,
