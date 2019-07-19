@@ -12,7 +12,7 @@ CREATE TABLE animals(
   name VARCHAR(255),
   type VARCHAR(255),
   breed VARCHAR(255),
-  admission_date INT4,
+  admission_date VARCHAR(255),
   owner_id int4 REFERENCES owners(id) ON DELETE CASCADE,
   adoption_ready boolean default false
 );
