@@ -29,4 +29,9 @@ class TestAnimal < MiniTest::Test
     assert_equal("moggie", result)
   end
 
+  def test_admission_date()
+    result = @animal1.admission_date
+    assert_equal("12th June 2018", result)
+  end
+
 end
