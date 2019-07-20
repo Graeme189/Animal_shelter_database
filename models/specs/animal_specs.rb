@@ -9,4 +9,9 @@ class TestAnimal < MiniTest::Test
     @animal1 = Animal.new(options)
   end
 
+  def test_id()
+    result = @animal1.id.to_s
+    assert_equal("1", result)
+  end
+
 end
