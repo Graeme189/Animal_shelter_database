@@ -39,4 +39,9 @@ class TestAnimal < MiniTest::Test
     assert_equal("1", result)
   end
 
+  def test_adoption_ready()
+    result = @animal1.adoption_ready
+    assert_equal(true, result)
+  end
+
 end
