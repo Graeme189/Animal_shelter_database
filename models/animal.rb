@@ -3,7 +3,8 @@ require_relative('owner')
 
 class Animal
 
-  attr_reader :id, :name, :type, :breed, :admission_date, :adoption_ready, :owner_id
+  attr_reader :id
+  attr_accessor :name, :type, :breed, :admission_date, :adoption_ready, :owner_id
 
   def initialize(options)
     @id = options['id'].to_i
@@ -35,14 +36,22 @@ class Animal
     @id = animal_data.first()['id'].to_i
   end
 
+  def update()
+    sql = "UPDATE animals
+    SET (name, type, breed, admission_date, owner_id, adoption_ready) = ($1, $2, $3, $4, $5, $6)
+    WHERE id = $7;"
+    values = [@name, @type, @breed, @admission_date, @owner_id, @adoption_ready, @id]
+    SqlRunner.run(sql, values)
+  end
+
   def self.delete_all()
-  sql = "DELETE FROM animals"
+  sql = "DELETE FROM animals;"
   SqlRunner.run(sql)
   end
 
   def delete()
     sql = "DELETE FROM animals
-    WHERE id = $1"
+    WHERE id = $1;"
     values = [@id]
     SqlRunner.run(sql, values)
   end
