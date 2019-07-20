@@ -19,4 +19,9 @@ class TestAnimal < MiniTest::Test
     assert_equal("Susie", result)
   end
 
+  def test_type()
+    result = @animal1.type
+    assert_equal("cat", result)
+  end
+
 end
