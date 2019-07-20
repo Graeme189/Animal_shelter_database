@@ -14,4 +14,9 @@ class TestOwner < MiniTest::Test
     assert_equal("1", result)
   end
 
+  def test_first_name()
+    result = @owner1.first_name
+    assert_equal("Juliet", result)
+  end
+
 end
