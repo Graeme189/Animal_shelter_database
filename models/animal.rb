@@ -71,13 +71,22 @@ class Animal
     result = Animal.new(animal.first)
     return result
   end
-  
-  def self.find(breed)
+
+  def self.find_breed(breed)
     sql = "SELECT * FROM animals
     WHERE breed = $1"
     values = [breed]
-    animal = SqlRunner.run(sql, values)
-    result = Animal.new(animal.first)
+    animals = SqlRunner.run(sql, values)
+    result = animals.map { |animal| Animal.new(animal) }
+    return result
+  end
+
+  def self.find_type(type)
+    sql = "SELECT * FROM animals
+    WHERE type = $1"
+    values = [type]
+    animals = SqlRunner.run(sql, values)
+    result = animals.map { |animal| Animal.new(animal) }
     return result
   end
 
