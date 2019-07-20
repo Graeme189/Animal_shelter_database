@@ -2,7 +2,8 @@ require_relative('../db/sql_runner')
 
 class Owner
 
-  attr_reader :id, :first_name, :last_name
+  attr_reader :id
+  attr_accessor :first_name, :last_name
 
   def initialize(options)
     @id = options['id'].to_i
@@ -24,6 +25,13 @@ class Owner
     values = [@first_name, @last_name]
     owner_data = SqlRunner.run(sql, values)
     @id = owner_data.first()['id'].to_i
+  end
+
+  def update()
+    sql = "UPDATE owners
+    SET (first_name, last_name) = ($1, $2) WHERE id = $3;"
+    values = [@first_name, @last_name, @id]
+    SqlRunner.run(sql, values)
   end
 
   def self.delete_all()
