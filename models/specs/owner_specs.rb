@@ -9,4 +9,9 @@ class TestOwner < MiniTest::Test
     @owner1 = Owner.new(options)
   end
 
+  def test_id()
+    result = @owner1.id.to_s
+    assert_equal("1", result)
+  end
+
 end
