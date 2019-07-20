@@ -14,4 +14,9 @@ class TestAnimal < MiniTest::Test
     assert_equal("1", result)
   end
 
+  def test_name()
+    result = @animal1.name
+    assert_equal("Susie", result)
+  end
+
 end
