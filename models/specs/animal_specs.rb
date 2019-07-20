@@ -34,4 +34,9 @@ class TestAnimal < MiniTest::Test
     assert_equal("12th June 2018", result)
   end
 
+  def test_owner_id()
+    result = @animal1.owner_id.to_s
+    assert_equal("1", result)
+  end
+
 end
