@@ -44,7 +44,7 @@ class Animal
     sql = "DELETE FROM animals
     WHERE id = $1"
     values = [@id]
-    SqlRunner.run( sql, values )
+    SqlRunner.run(sql, values)
   end
 
   def self.all()
