@@ -7,6 +7,10 @@ require_relative('./models/owner')
 also_reload('./models/*')
 
 get '/shelter' do
-  @animals = Animal.all()
   erb(:index)
+end
+
+get '/shelter/animals' do
+  @animals = Animal.all()
+  erb(:animals)
 end
