@@ -1,0 +1,8 @@
+<h1>All owners</h1>
+
+<% @owners.each do |owner| %>
+  <p>First name: <%= owner.first_name() %> </p>
+  <p>Last name: <%= owner.last_name() %> </p>
+  <p>Owner id: <%= owner.id %></p>
+  <hr/>
+<% end %>

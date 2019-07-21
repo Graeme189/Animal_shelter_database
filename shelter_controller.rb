@@ -14,3 +14,8 @@ get '/shelter/animals' do
   @animals = Animal.all()
   erb(:animals)
 end
+
+get '/shelter/owners' do
+  @owners = Owner.all
+  erb(:owners)
+end
