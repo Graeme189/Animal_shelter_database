@@ -90,6 +90,15 @@ class Animal
     return result
   end
 
+  def self.find_adoption_ready(adoption_ready)
+    sql = "SELECT * FROM animals
+    WHERE adoption_ready = $1"
+    values = [adoption_ready]
+    animals = SqlRunner.run(sql, values)
+    result = animals.map { |animal| Animal.new(animal) }
+    return result
+  end
+
   def owner()
     sql = "SELECT * FROM owners
     WHERE id = $1"
@@ -99,7 +108,5 @@ class Animal
     owner = Owner.new(owner_data)
     return owner
   end
-
-
 
 end

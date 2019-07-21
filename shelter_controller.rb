@@ -71,3 +71,14 @@ post '/shelter/owner/:id' do # update
   Owner.new(params).update
   redirect to '/shelter/owners'
 end
+
+# SHOW ANIMALS READY FOR ADOPTION
+get '/shelter/animals/adoption-ready' do
+  @animals = Animal.find_adoption_ready(true)
+  erb(:adoptionready)
+end
+
+get '/shelter/animals/not-adoption-ready' do
+  @animals = Animal.find_adoption_ready(false)
+  erb(:notadoptionready)
+end
