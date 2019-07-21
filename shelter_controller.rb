@@ -20,7 +20,7 @@ get '/shelter/owners' do # show owners
   erb(:owners)
 end
 
-get '/shelter/:id' do
+get '/shelter/animal/:id' do
   @animal = Animal.find(params[:id])
   erb(:showanimal)
 end
@@ -48,4 +48,26 @@ post '/shelter/newowner' do # post create new owner
   @owner = Owner.new(params)
   @owner.save()
   erb(:createowner)
+end
+
+# EDIT ANIMAL
+get '/shelter/animal/:id/edit' do
+  @animal = Animal.find(params[:id])
+  erb(:editanimal)
+end
+
+post '/shelter/animal/:id' do # update
+  Animal.new(params).update
+  redirect to '/shelter/animals'
+end
+
+# EDIT OWNER
+get '/shelter/owner/:id/edit' do
+  @owner = Owner.find(params[:id])
+  erb(:editowner)
+end
+
+post '/shelter/owner/:id' do # update
+  Owner.new(params).update
+  redirect to '/shelter/owners'
 end

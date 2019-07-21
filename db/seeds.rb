@@ -53,7 +53,7 @@ animal1 = Animal.new({
   "name" => "Lola",
   "type" => "cat",
   "breed" => "moggie",
-  "admission_date" => "12-04-2019",
+  "admission_date" => "12/04/2019",
   "owner_id" => owner1.id,
   "adoption_ready" => true
   })
@@ -62,7 +62,7 @@ animal2 = Animal.new({
   "name" => "Dixie",
   "type" => "cat",
   "breed" => "shorthair",
-  "admission_date" => "17-05-2019",
+  "admission_date" => "17/05/2019",
   "owner_id" => owner1.id,
   "adoption_ready" => false
   })
@@ -71,7 +71,7 @@ animal3 = Animal.new({
   "name" => "Alba",
   "type" => "dog",
   "breed" => "beagle",
-  "admission_date" => "07-06-2019",
+  "admission_date" => "07/06/2019",
   "owner_id" => owner3.id,
   "adoption_ready" => true
   })
@@ -80,7 +80,7 @@ animal4 = Animal.new({
   "name" => "Bowie",
   "type" => "dog",
   "breed" => "collie",
-  "admission_date" => "15-01-2019",
+  "admission_date" => "15/01/2019",
   "adoption_ready" => true
   })
 
@@ -88,7 +88,7 @@ animal5 = Animal.new({
   "name" => "Obama",
   "type" => "dog",
   "breed" => "daschund",
-  "admission_date" => "14-02-2012",
+  "admission_date" => "14/02/2012",
   "owner_id" => owner6.id,
   "adoption_ready" => false
   })
@@ -97,7 +97,7 @@ animal6 = Animal.new({
   "name" => "Long John Silver",
   "type" => "parrot",
   "breed" => "macaw",
-  "admission_date" => "19-07-2019",
+  "admission_date" => "19/07/2019",
   "adoption_ready" => false
   })
 
@@ -105,7 +105,7 @@ animal7 = Animal.new({
   "name" => "Incy Wincy Spider",
   "type" => "spider",
   "breed" => "tarantula",
-  "admission_date" => "12-11-2018",
+  "admission_date" => "12/11/2018",
   "adoption_ready" => true
   })
 
@@ -113,7 +113,7 @@ animal8 = Animal.new({
   "name" => "Henry",
   "type" => "hippo",
   "breed" => "pigmy",
-  "admission_date" => "04-05-2019",
+  "admission_date" => "04/05/2019",
   "adoption_ready" => false
   })
 

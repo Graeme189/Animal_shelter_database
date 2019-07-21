@@ -1,0 +1,11 @@
+<form action="/shelter/owner/<%= @owner.id %>" method="post">
+
+  <label for="first-name-field">First name:</label>
+  <input type="text" name="first_name" id="first_name_field" value="<%= @owner.first_name() %>"/>
+
+  <label for="last-name-field">Last name:</label>
+  <input type="text" name="last_name" id="last_name_field" value="<%= @owner.last_name() %>"/>
+
+  <input type='submit' value="Edit Owner">
+
+</form>

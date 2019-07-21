@@ -1,0 +1,20 @@
+<form action="/shelter/animal/<%= @animal.id %>" method="post">
+
+  <label for="name-field">Name:</label>
+  <input type="text" name="name" id="name-field" value="<%= @animal.name() %>"/>
+
+  <label for="type-field">Type:</label>
+  <input type="text" name="type" id="type-field" value="<%= @animal.type() %>"/>
+
+  <label for="breed">Breed:</label>
+  <input type="text" name="breed" id="breed-field" value="<%= @animal.breed() %>"/>
+
+  <label for="admission-date-field">Admission date (dd/mm/yyyy):</label>
+  <input type="text" name="admission_date" id="admission-date-field" value="<%= @animal.admission_date() %>"/>
+
+
+  <label for="adoption-ready-field">Ready for adoption:</label>
+  <input type="checkbox" name="adoption_ready" id="adoption-ready-field" value="<%= @animal.adoption_ready() %>"/>
+
+  <input type='submit' value="Edit Animal">
+</form>
