@@ -19,6 +19,10 @@ get '/shelter/owners' do # show owners
   @owners = Owner.all
   erb(:owners)
 end
+get '/shelter/:id' do
+  @animal = Animal.find(params[:id])
+  erb(:showanimal)
+end
 
 get '/shelter/newanimal' do # new animal
   erb(:newanimal)
