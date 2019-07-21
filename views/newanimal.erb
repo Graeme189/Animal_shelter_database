@@ -1,4 +1,5 @@
-<form action="/shelter" method="post">
+<form action="/shelter/newanimal" method="post">
+
   <label for="Name">Name:</label>
   <input type="text" name="name" id="name">
 
@@ -12,18 +13,7 @@
   <input type="text" name="admission_date" id="admission_date">
 
   <label for="adoption_ready">Ready for adoption:</label>
-  <input type="checkbox" name="adoption_ready" value="false">
-
-  <!-- <label for="house-select">Select a house:</label>
-  <select id="house-select" name="house">
-    <option value="Gryffindor">Gryffindor</option>
-    <option value="Ravenclaw">Ravenclaw</option>
-    <option value="Hufflepuff">Hufflepuff</option>
-    <option value="Slytherin">Slytherin</option>
-  </select> -->
-
-  <!-- <label for="age">Age:</label>
-  <input type="number" name="age" id="age"> -->
+  <input type="checkbox" name="adoption_ready" id="adoption_ready">
 
   <input type="submit" value="Add animal">
 

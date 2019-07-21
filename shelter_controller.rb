@@ -20,12 +20,22 @@ get '/shelter/owners' do # show owners
   erb(:owners)
 end
 
-get '/shelter/newanimal' do # new
+get '/shelter/newanimal' do # new animal
   erb(:newanimal)
 end
 
-post '/shelter' do # create
+post '/shelter/newanimal' do # post create new animal
   @animal = Animal.new(params)
   @animal.save()
   erb(:create)
+end
+
+get '/shelter/newowner' do # new owner
+  erb(:newowner)
+end
+
+post '/shelter/newowner' do # post create new owner
+  @owner = Owner.new(params)
+  @owner.save()
+  erb(:createowner)
 end
