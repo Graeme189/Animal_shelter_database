@@ -32,13 +32,16 @@ form label {
   padding: 10px;
 }
 
+.centered {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+  }
+}
+
 .animal {
-  text-align: center;
-  border: 5px solid;
-  margin: 0 35px 30px 0;
+  border: 10px solid;
   padding: 25px;
-  width: 200px;
-  display: inline-block;
 }
 
 img.a {
