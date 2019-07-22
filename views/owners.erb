@@ -1,8 +1,12 @@
 <h1>All owners</h1>
 
 <% @owners.each do |owner| %>
+  <div class="animal">
   <p>First name: <%= owner.first_name() %> </p>
   <p>Last name: <%= owner.last_name() %> </p>
   <p>Owner id: <%= owner.id %></p>
-  <hr/>
+  
+  <button onclick="location.href='/shelter/owner/<%= owner.id %>/edit'" type="button">Edit</button>
+
+  </div>
 <% end %>

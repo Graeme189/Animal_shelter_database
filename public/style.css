@@ -21,17 +21,28 @@ nav a {
   color: white;
 }
 
-.grid {
-  display: flex;
+form {
+  margin: 10px;
+  text-align: center;
 }
 
-.grid-row {
-  display: flex;
-  flex-direction: row;
-}
-
-.cell {
-  flex: 1;
+form label {
+  font-size: 20px;
   padding: 10px;
-  border: solid 1px mediumaquamarine;
+}
+
+.animal {
+  text-align: center;
+  border: 5px solid;
+  margin: 0 35px 30px 0;
+  padding: 25px;
+  width: 200px;
+  display: inline-block;
+}
+
+img.a {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
 }
