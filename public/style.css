@@ -1,6 +1,7 @@
 body {
   color: white;
   background-color: grey;
+  font-family: 'Roboto', sans-serif;
 }
 
 h1 {
@@ -45,4 +46,7 @@ img.a {
   margin-left: auto;
   margin-right: auto;
   width: 40%;
+  border: 10px solid;
+  border-color: green;
+  border-radius: 25px;
 }

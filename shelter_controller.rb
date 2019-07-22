@@ -82,3 +82,30 @@ get '/shelter/animals/not-adoption-ready' do
   @animals = Animal.find_adoption_ready(false)
   erb(:notadoptionready)
 end
+
+# SHOW ANIMALS BY BREED
+get '/shelter/animals/bybreed/:breed' do
+  @animals = Animal.find_breed(params[:breed])
+  erb(:bybreed)
+end
+
+get '/shelter/animals/bytype/:type' do
+  @animals = Animal.find_type(params[:type])
+  erb(:bytype)
+end
+
+# DELETE ANIMAL
+
+post '/shelter/animal/:id/delete' do # delete
+  animal = Animal.find( params[:id] )
+  animal.delete()
+  redirect to '/shelter/animals'
+end
+
+# DELETE ANIMAL
+
+post '/shelter/owner/:id/delete' do # delete
+  owner = Owner.find( params[:id] )
+  owner.delete()
+  redirect to '/shelter/owners'
+end

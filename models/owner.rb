@@ -1,9 +1,10 @@
 require_relative('../db/sql_runner')
+require_relative('animal')
 
 class Owner
 
   attr_reader :id
-  attr_accessor :first_name, :last_name
+  attr_accessor :first_name, :last_name, :name
 
   def initialize(options)
     @id = options['id'].to_i
@@ -67,8 +68,7 @@ class Owner
     WHERE owner_id = $1"
     values = [@id]
     results = SqlRunner.run(sql, values)
-    animals = results.map { |animal| Animal.new(animal)}
-    return animals
+    adopted = results.map { |animal| Animal.new(animal)}
+    return adopted
+    end
   end
-
-end
