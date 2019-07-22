@@ -13,7 +13,7 @@ class Animal
     @breed = options['breed']
     @admission_date = options['admission_date']
     @owner_id = options['owner_id']
-    @adoption_ready = options['adoption_ready'] ||=false
+    @adoption_ready = options['adoption_ready']
   end
 
   def save()

@@ -1,0 +1,37 @@
+body {
+  color: white;
+  background-color: grey;
+}
+
+h1 {
+  text-align: center;
+}
+
+nav {
+  text-align: center;
+}
+
+nav li {
+  display: inline-block;
+  padding: 20px;
+  color: white;
+}
+nav a {
+  align-items: center;
+  color: white;
+}
+
+.grid {
+  display: flex;
+}
+
+.grid-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.cell {
+  flex: 1;
+  padding: 10px;
+  border: solid 1px mediumaquamarine;
+}

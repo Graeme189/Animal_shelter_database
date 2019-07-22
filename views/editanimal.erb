@@ -12,9 +12,12 @@
   <label for="admission-date-field">Admission date (dd/mm/yyyy):</label>
   <input type="text" name="admission_date" id="admission-date-field" value="<%= @animal.admission_date() %>"/>
 
+  <label for="owner-id-field">Owner ID:</label>
+  <input type="text" name="owner_id" id="owner-id-field" value="<%= @animal.owner_id() %>"/>
+
 
   <label for="adoption-ready-field">Ready for adoption:</label>
-  <input type="checkbox" name="adoption_ready" id="adoption-ready-field" value="<%= @animal.adoption_ready() %>"/>
+  <input type="checkbox" name="adoption_ready" id="adoption-ready-field" value="t" <%= "checked" if @animal.adoption_ready == "t" %>/>
 
   <input type='submit' value="Edit Animal">
 </form>
