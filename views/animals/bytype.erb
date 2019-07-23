@@ -1,5 +1,5 @@
 <h1>Animals by type</h1>
-
+<div class="centered">
 <% @animals.each do |animal| %>
 <div class="animal">
   <p>Name: <%= animal.name() %> </p>
@@ -8,5 +8,5 @@
   <p>Breed: <%= animal.breed() %> </p>
   <p>Admission date: <%= animal.admission_date() %> </p>
 </div>
-
 <% end %>
+</div>

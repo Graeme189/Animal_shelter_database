@@ -1,11 +1,12 @@
 <h1>Animals by breed</h1>
-
+<div class="centered">
 <% @animals.each do |animal| %>
 <div class="animal">
   <p>Name: <%= animal.name() %> </p>
-  <p>ID number: <%= animal.id %></p>
+  <p>ID number: <%= animal.id() %></p>
   <p>Type: <%= animal.type() %> </p>
-  <p>Breed: <%= animal.breed %> </p>
+  <p>Breed: <%= animal.breed() %> </p>
   <p>Admission date: <%= animal.admission_date %> </p>
 </div>
 <% end %>
+</div>

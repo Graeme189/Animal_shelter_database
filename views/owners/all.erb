@@ -5,8 +5,11 @@
   <p>First name: <%= owner.first_name() %> </p>
   <p>Last name: <%= owner.last_name() %> </p>
   <p>Owner id: <%= owner.id() %></p>
-  <p>Animals adopted: <%= owner.animals.each do |animal|
-  animal.name end %></p>
+  <p>Animals adopted: <ul>
+    <% owner.animals.each do |animal| %>
+    <li><%= animal.name %></li>
+    <% end %>
+  </ul></p>
 
   <button onclick="location.href='/shelter/owner/<%= owner.id %>/edit'" type="button">Edit</button>
 

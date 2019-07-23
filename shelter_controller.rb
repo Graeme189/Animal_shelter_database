@@ -6,68 +6,87 @@ require_relative('./models/animal')
 require_relative('./models/owner')
 also_reload('./models/*')
 
-get '/shelter' do # home
+# HOME
+
+get '/shelter' do
   erb(:index)
 end
 
-get '/shelter/animals' do # show animals
+# SHOW ANIMALS
+
+get '/shelter/animals' do
   @animals = Animal.all()
-  erb(:animals)
+  erb(:"animals/all")
 end
 
-get '/shelter/owners' do # show owners
+# SHOW OWNERS
+
+get '/shelter/owners' do
   @owners = Owner.all
-  erb(:owners)
+  erb(:"owners/all")
 end
+
+# SHOW ANIMAL
 
 get '/shelter/animal/:id' do
   @animal = Animal.find(params[:id])
-  erb(:showanimal)
+  erb(:"animals/show")
 end
+
+# SHOW OWNER
 
 get '/shelter/owner/:id' do
   @owner = Owner.find(params[:id])
-  erb(:showowner)
+  erb(:"owners/show")
 end
 
-get '/shelter/newanimal' do # new animal
-  erb(:newanimal)
+# CREATE NEW ANIMAL
+
+get '/shelter/newanimal' do
+  erb(:"animals/new")
 end
 
-post '/shelter/newanimal' do # post create new animal
+post '/shelter/newanimal' do
+  params["adoption_ready"] = "f" if !params["adoption_ready"]
   @animal = Animal.new(params)
   @animal.save()
-  erb(:create)
+  erb(:"animals/create")
 end
 
-get '/shelter/newowner' do # new owner
-  erb(:newowner)
+# CREATE NEW OWNER
+
+get '/shelter/newowner' do
+  erb(:"owners/new")
 end
 
-post '/shelter/newowner' do # post create new owner
+post '/shelter/newowner' do
   @owner = Owner.new(params)
   @owner.save()
-  erb(:createowner)
+  erb(:"owners/create")
 end
 
 # EDIT ANIMAL
-get '/shelter/animal/:id/edit' do
+
+get '/shelter/animals/:id/edit' do
+  @owners = Owner.all()
   @animal = Animal.find(params[:id])
-  erb(:editanimal)
+  erb(:"animals/edit")
 end
 
-post '/shelter/animal/:id' do # update
+post '/shelter/animal/:id' do
+  params.delete("owner_id") if params["owner_id"] == ""
+  params["adoption_ready"] = "f" if !params["adoption_ready"]
   Animal.new(params).update
   redirect to '/shelter/animals'
 end
 
 # EDIT OWNER
-get '/shelter/owner/:id/edit' do
+get '/shelter/owners/:id/edit' do
   @owner = Owner.find(params[:id])
-  erb(:editowner)
+  erb(:"owners/edit")
 end
 
-post '/shelter/owner/:id' do # update
+post '/shelter/owners/:id' do # update
   Owner.new(params).update
   redirect to '/shelter/owners'
 end
@@ -75,34 +94,37 @@ end
 # SHOW ANIMALS READY FOR ADOPTION
 get '/shelter/animals/adoption-ready' do
   @animals = Animal.find_adoption_ready(true)
-  erb(:adoptionready)
+  erb(:"animals/adoptionready")
 end
 
 get '/shelter/animals/not-adoption-ready' do
   @animals = Animal.find_adoption_ready(false)
-  erb(:notadoptionready)
+  erb(:"animals/notadoptionready")
 end
 
 # SHOW ANIMALS BY BREED
-get '/shelter/animals/bybreed/:breed' do
-  @animals = Animal.find_breed(params[:breed])
-  erb(:bybreed)
+
+get '/shelter/animals/bybreed' do
+  @animals = Animal.sort_by_breed()
+  erb(:"animals/bybreed")
 end
 
-get '/shelter/animals/bytype/:type' do
-  @animals = Animal.find_type(params[:type])
-  erb(:bytype)
+# SHOW ANIMALS BY TYPE
+
+get '/shelter/animals/bytype' do
+  @animals = Animal.sort_by_type()
+  erb(:"animals/bytype")
 end
 
 # DELETE ANIMAL
 
-post '/shelter/animal/:id/delete' do # delete
+post '/shelter/animals/:id/delete' do # delete
   animal = Animal.find( params[:id] )
   animal.delete()
   redirect to '/shelter/animals'
 end
 
-# DELETE ANIMAL
+# DELETE OWNER
 
 post '/shelter/owner/:id/delete' do # delete
   owner = Owner.find( params[:id] )

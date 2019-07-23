@@ -12,9 +12,17 @@
   <label for="admission-date-field">Admission date (dd/mm/yyyy):</label>
   <input type="text" name="admission_date" id="admission-date-field" value="<%= @animal.admission_date() %>"/>
 
-  <label for="owner-id-field">Owner ID:</label>
-  <input type="text" name="owner_id" id="owner-id-field" value="<%= @animal.owner_id() %>"/>
-
+  <label for="assign-owner">Owner</label>
+  <select name="owner_id" id="assign-owner">
+   <% @owners.each do |owner| %>
+     <% if owner.id == @animal.owner_id %>
+       <option value=<%= owner.id %> selected><%=owner.first_name %></option>
+     <% else %>
+       <option value=<%= owner.id %>><%= owner.first_name %></option>
+     <% end %>
+   <% end %>
+   <option value="" <%= "selected" if @animal.owner_id == 0 %>>None</option>
+   </select>
 
   <label for="adoption-ready-field">Ready for adoption:</label>
   <input type="checkbox" name="adoption_ready" id="adoption-ready-field" value="t" <%= "checked" if @animal.adoption_ready == "t" %>/>

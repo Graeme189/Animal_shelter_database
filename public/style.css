@@ -34,14 +34,15 @@ form label {
 
 .centered {
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: flex-start;
     text-align: center;
-  }
+    border: 10px solid black;
 }
 
 .animal {
-  border: 10px solid;
-  padding: 25px;
+  flex-basis: auto;
+  padding: 15px;
 }
 
 img.a {
@@ -52,4 +53,8 @@ img.a {
   border: 10px solid;
   border-color: green;
   border-radius: 25px;
+}
+
+ul li {
+  text-align: left;
 }

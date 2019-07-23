@@ -4,7 +4,7 @@ require_relative('owner')
 class Animal
 
   attr_reader :id
-  attr_accessor :name, :type, :breed, :admission_date, :adoption_ready, :owner_id
+  attr_accessor :name, :type, :breed, :admission_date, :owner_id, :adoption_ready
 
   def initialize(options)
     @id = options['id'].to_i
@@ -86,6 +86,22 @@ class Animal
     WHERE type = $1"
     values = [type]
     animals = SqlRunner.run(sql, values)
+    result = animals.map { |animal| Animal.new(animal) }
+    return result
+  end
+
+  def self.sort_by_type()
+    sql = "SELECT * FROM animals
+    ORDER BY type ASC;"
+    animals = SqlRunner.run(sql)
+    result = animals.map { |animal| Animal.new(animal) }
+    return result
+  end
+
+  def self.sort_by_breed()
+    sql = "SELECT * FROM animals
+    ORDER BY breed ASC;"
+    animals = SqlRunner.run(sql)
     result = animals.map { |animal| Animal.new(animal) }
     return result
   end
