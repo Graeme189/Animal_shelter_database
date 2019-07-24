@@ -4,7 +4,7 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-h1 {
+h1, h2 {
   text-align: center;
 }
 
@@ -32,9 +32,13 @@ form label {
   padding: 10px;
 }
 
+p.a {
+  text-align: center;
+}
+
 .centered {
     display: flex;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
     justify-content: flex-start;
     text-align: center;
     border: 10px solid black;
@@ -57,4 +61,5 @@ img.a {
 
 ul li {
   text-align: left;
+  font-style: italic;
 }

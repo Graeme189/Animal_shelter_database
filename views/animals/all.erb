@@ -1,19 +1,18 @@
 <h1>All animals</h1>
 <div class="centered">
-<% @animals.each do |animal| %>
+  <% @animals.each do |animal| %>
   <div class="animal">
     <p>Name: <%= animal.name() %> </p>
-    <p>ID number: <%= animal.id() %></p>
     <p>Type: <%= animal.type() %> </p>
     <p>Breed: <%= animal.breed() %> </p>
     <p>Admission date: <%= animal.admission_date() %> </p>
-    <p>Ready for adoption: <%= animal.adoption_ready() %> </p>
+    <p>Ready for adoption: <%= animal.adoption_ready_to_string() %> </p>
 
     <button onclick="location.href='/shelter/animals/<%= animal.id %>/edit'" type="button">Edit</button>
 
     <form class="animalform" method="post" action="/shelter/animals/<%= animal.id %>/delete">
       <input type="submit" value="Delete Animal"/>
     </form>
-    </div>
-<% end %>
+  </div>
+  <% end %>
 </div>

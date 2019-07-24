@@ -13,7 +13,7 @@ class Animal
     @breed = options['breed']
     @admission_date = options['admission_date']
     @owner_id = options['owner_id']
-    @adoption_ready = options['adoption_ready']
+    @adoption_ready = options['adoption_ready'].to_s
   end
 
   def save()
@@ -104,6 +104,11 @@ class Animal
     animals = SqlRunner.run(sql)
     result = animals.map { |animal| Animal.new(animal) }
     return result
+  end
+
+  def adoption_ready_to_string()
+    return "Yes" if @adoption_ready == 't'
+    return "No" if @adoption_ready == 'f'
   end
 
   def self.find_adoption_ready(adoption_ready)

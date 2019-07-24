@@ -1,12 +1,17 @@
 <h1>Not ready for adoption</h1>
 <div class="centered">
-<% @animals.each do |animal| %>
-<div class="animal">
-  <p>Name: <%= animal.name() %> </p>
-  <p>ID number: <%= animal.id %></p>
-  <p>Type: <%= animal.type() %> </p>
-  <p>Breed: <%= animal.breed %> </p>
-  <p>Admission date: <%= animal.admission_date %> </p>
-</div>
-<% end %>
+  <% @animals.each do |animal| %>
+  <div class="animal">
+    <p>Name: <%= animal.name() %> </p>
+    <p>Type: <%= animal.type() %> </p>
+    <p>Breed: <%= animal.breed %> </p>
+    <p>Admission date: <%= animal.admission_date %> </p>
+
+    <button onclick="location.href='/shelter/animals/<%= animal.id %>/edit'" type="button">Edit</button>
+
+    <form class="animalform" method="post" action="/shelter/animals/<%= animal.id %>/delete">
+      <input type="submit" value="Delete Animal"/>
+    </form>
+  </div>
+  <% end %>
 </div>
