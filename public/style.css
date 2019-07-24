@@ -1,11 +1,13 @@
 body {
   color: white;
-  background-color: grey;
+  background: #666699;
+  background-size: cover;
   font-family: 'Roboto', sans-serif;
 }
 
 h1, h2 {
   text-align: center;
+  color: pink;
 }
 
 nav {
@@ -20,6 +22,16 @@ nav li {
 nav a {
   align-items: center;
   color: white;
+
+}
+nav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+nav a:active {
+  background-color: #4CAF50;
+  color: red;
 }
 
 form {
@@ -36,7 +48,7 @@ p.a {
   text-align: center;
 }
 
-.centered {
+.container {
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
@@ -44,9 +56,9 @@ p.a {
     border: 10px solid black;
 }
 
-.animal {
-  flex-basis: auto;
-  padding: 15px;
+.content {
+  padding: 20px;
+  opacity: 1.0;
 }
 
 img.a {
@@ -62,4 +74,5 @@ img.a {
 ul li {
   text-align: left;
   font-style: italic;
+  font-style:
 }
